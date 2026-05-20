@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boho Bliss - Kurthi Collection</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --main1:#c850c0;
+      --main2:#ff5f9e;
+      --light:#fff0f7;
+      --dark:#2b2b2b;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--light);
+      overflow-x:hidden;
+    }
+
+    /* HEADER */
+    header{
+      width:100%;
+      background:linear-gradient(90deg,var(--main1),var(--main2));
+      padding:15px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .logo{
+      color:white;
+      font-size:28px;
+      font-weight:700;
+    }
+
+    nav{
+      display:flex;
+      gap:25px;
+      align-items:center;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:500;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav a:hover{
+      color:#ffe6f4;
+    }
+
+    nav a.active::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:100%;
+      height:2px;
+      background:white;
+      border-radius:10px;
+    }
+
+    /* SECTION TITLE */
+    .section-title{
+      text-align:center;
+      margin:55px 0 30px;
+      padding:0 10px;
+    }
+
+    .section-title h2{
+      color:var(--main1);
+      font-size:42px;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    .section-title p{
+      color:#666;
+      font-size:15px;
+    }
+
+    /* PRODUCT DETAILS BOX */
+    .product-container{
+      width:90%;
+      margin:30px auto;
+      background:white;
+      border-radius:20px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      padding:25px;
+      display:flex;
+      gap:40px;
+      align-items:center;
+      transition:0.3s;
+    }
+
+    .product-container:hover{
+      transform:translateY(-6px);
+      box-shadow:0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .product-img{
+      flex:1;
+      text-align:center;
+    }
+
+    .product-img img{
+      width:100%;
+      max-width:420px;
+      height:430px;
+      object-fit:contain;
+      background:#fff4fa;
+      padding:20px;
+      border-radius:18px;
+      transition:0.4s;
+    }
+
+    .product-container:hover img{
+      transform:scale(1.05);
+    }
+
+    .product-details{
+      flex:1;
+    }
+
+    .product-details h1{
+      font-size:28px;
+      color:var(--main1);
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    .product-details p{
+      color:#555;
+      line-height:1.7;
+      margin-bottom:15px;
+      font-size:15px;
+    }
+
+    .rating{
+      margin-bottom:15px;
+      font-size:15px;
+      color:#444;
+    }
+
+    .rating i{
+      color:gold;
+    }
+
+    .sizes{
+      margin-bottom:20px;
+    }
+
+    .sizes h3{
+      margin-bottom:10px;
+      font-size:16px;
+      color:#333;
+      font-weight:600;
+    }
+
+    .sizes button{
+      padding:10px 18px;
+      border:1px solid var(--main2);
+      background:white;
+      color:var(--main2);
+      border-radius:10px;
+      margin-right:10px;
+      margin-bottom:10px;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:600;
+    }
+
+    .sizes button:hover{
+      background:var(--main2);
+      color:white;
+      transform:scale(1.05);
+    }
+
+    .btn-row{
+      display:flex;
+      gap:15px;
+      margin-top:10px;
+    }
+
+    .buy-btn{
+      flex:1;
+      padding:12px;
+      border:none;
+      border-radius:30px;
+      background:linear-gradient(90deg,var(--main1),var(--main2));
+      color:white;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .buy-btn:hover{
+      transform:scale(1.03);
+    }
+
+    .back-btn{
+      flex:1;
+      padding:12px;
+      border-radius:30px;
+      border:2px solid var(--main2);
+      background:white;
+      color:var(--main2);
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .back-btn:hover{
+      background:var(--main2);
+      color:white;
+      transform:scale(1.03);
+    }
+
+    /* FOOTER */
+    footer{
+      background:#1f1f1f;
+      color:white;
+      padding:50px 20px;
+      margin-top:60px;
+    }
+
+    .footer-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+      width:90%;
+      margin:auto;
+    }
+
+    .footer-box h3{
+      margin-bottom:15px;
+      color:var(--main2);
+    }
+
+    .footer-box p,
+    .footer-box a{
+      color:#ccc;
+      text-decoration:none;
+      display:block;
+      margin-bottom:10px;
+      transition:0.3s;
+    }
+
+    .footer-box a:hover{
+      color:white;
+    }
+
+    .social-icons a{
+      width:45px;
+      height:45px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:#333;
+      color:white;
+      font-size:20px;
+      margin-right:10px;
+      transition:0.3s;
+    }
+
+    .social-icons a:hover{
+      background:var(--main2);
+      transform:scale(1.1);
+    }
+
+    .copyright{
+      text-align:center;
+      margin-top:30px;
+      color:#aaa;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      header{
+        padding:20px;
+        justify-content:center;
+        gap:15px;
+      }
+
+      nav{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .product-container{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .product-img img{
+        height:330px;
+      }
+
+      .btn-row{
+        flex-direction:column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">✨ Boho Bliss</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="saree.html">Saree</a>
+      <a href="lehenga.html">Lehenga</a>
+      <a href="kurthi.html" class="active">Kurthi</a>
+      <a href="western.html" class="active">Western Tops</a>
+      <a href="#footer">Contact</a>
+    </nav>
+  </header>
+
+  <!-- TITLE -->
+  <div class="section-title">
+    <h2>Kurthi Collection</h2>
+    <p>Explore our trendy kurthis for casual & festive wear</p>
+  </div>
+
+  <!-- PRODUCT 1 -->
+  <div class="product-container">
+    <div class="product-img">
+      <img src="img/51.webp" alt="Kurthi">
+    </div>
+
+    <div class="product-details">
+      <h1>Blue Printed Kurthi</h1>
+
+      <div class="rating">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+        (4.6)
+      </div>
+
+      <p>
+        Stylish blue printed kurthi with comfortable fabric.
+        Perfect for daily wear and casual outings.
+      </p>
+
+      <div class="sizes">
+        <h3>Available Sizes</h3>
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+
+      <div class="btn-row">
+        <button class="buy-btn">Add To Cart</button>
+        <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="product-container">
+    <div class="product-img">
+      <img src="img/52.png" alt="Kurthi">
+    </div>
+
+    <div class="product-details">
+      <h1>Pink Cotton Kurthi</h1>
+
+      <div class="rating">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        (4.4)
+      </div>
+
+      <p>
+        Soft cotton kurthi with elegant pattern design.
+        Best for summer wear and casual functions.
+      </p>
+
+      <div class="sizes">
+        <h3>Available Sizes</h3>
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+
+      <div class="btn-row">
+        <button class="buy-btn">Add To Cart</button>
+        <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT 3 -->
+  <div class="product-container">
+    <div class="product-img">
+      <img src="img/53.webp" alt="Kurthi">
+    </div>
+
+    <div class="product-details">
+      <h1>Green Festive Kurthi</h1>
+
+      <div class="rating">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        (5.0)
+      </div>
+
+      <p>
+        Premium festive kurthi with embroidery work.
+        Perfect for weddings, functions and celebrations.
+      </p>
+
+      <div class="sizes">
+        <h3>Available Sizes</h3>
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+
+      <div class="btn-row">
+        <button class="buy-btn">Add To Cart</button>
+        <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT 4 -->
+  <div class="product-container">
+    <div class="product-img">
+      <img src="img/54.webp" alt="Kurthi">
+    </div>
+
+    <div class="product-details">
+      <h1>Yellow Designer Kurthi</h1>
+
+      <div class="rating">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+        (4.7)
+      </div>
+
+      <p>
+        Elegant designer kurthi with modern stitching style.
+        Best for parties and special events.
+      </p>
+
+      <div class="sizes">
+        <h3>Available Sizes</h3>
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+
+      <div class="btn-row">
+        <button class="buy-btn">Add To Cart</button>
+        <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+      </div>
+    </div>
+  </div>
+
+   <div class="product-container">
+    <div class="product-img">
+      <img src="img/55.webp" alt="Kurthi">
+    </div>
+
+    <div class="product-details">
+      <h1>Yellow Designer Kurthi</h1>
+
+      <div class="rating">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+        (4.7)
+      </div>
+
+      <p>
+        Elegant designer kurthi with modern stitching style.
+        Best for parties and special events.
+      </p>
+
+      <div class="sizes">
+        <h3>Available Sizes</h3>
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+
+      <div class="btn-row">
+        <button class="buy-btn">Add To Cart</button>
+        <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container" id="footer">
+
+      <div class="footer-box">
+        <h3>✨ Boho Bliss</h3>
+        <p>Style Your Soul • Wear Your Bliss</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="saree.html">Saree</a>
+        <a href="lehenga.html">Lehenga</a>
+        <a href="kurthi.html">Kurthi</a>
+      </div>
+
+      <div class="footer-box">
+        <h3>Contact</h3>
+        <p>Email: boho_bliss@gmail.com</p>
+        <p>Phone: +91 9360313674</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Boho Bliss | All Rights Reserved
+    </div>
+  </footer>
+
+</body>
+</html>

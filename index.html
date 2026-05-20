@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boho Bliss - Saree Collection</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --main1:#c850c0;
+      --main2:#ff5f9e;
+      --light:#fff0f7;
+      --dark:#2b2b2b;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--light);
+      overflow-x:hidden;
+      scroll-behavior:smooth;
+    }
+
+    /* HEADER */
+    header{
+      width:100%;
+      background:linear-gradient(90deg,var(--main1),var(--main2));
+      padding:15px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      color:white;
+      font-size:30px;
+      font-weight:700;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:30px;
+      font-weight:500;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav a:hover{
+      color:#ffe6f4;
+    }
+
+    nav a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:2px;
+      background:white;
+      transition:0.4s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    .icons{
+      font-size:20px;
+      color:white;
+    }
+
+    /* CAROUSEL */
+    .carousel-item{
+      position:relative;
+    }
+
+    .carousel-item::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.35);
+    }
+
+    .carousel-caption{
+      bottom:25%;
+    }
+
+    .carousel-caption h1{
+      font-size:60px;
+      font-weight:700;
+      text-shadow:2px 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .carousel-caption p{
+      font-size:20px;
+      margin-top:15px;
+    }
+
+    .shop-btn{
+      margin-top:20px;
+      padding:12px 28px;
+      border:none;
+      border-radius:40px;
+      background:var(--main2);
+      color:white;
+      font-size:18px;
+      font-weight:600;
+      transition:0.4s;
+    }
+
+    .shop-btn:hover{
+      background:white;
+      color:var(--main1);
+      transform:scale(1.05);
+    }
+
+    /* SECTION TITLE */
+    .section-title{
+      text-align:center;
+      margin:60px 0 30px;
+    }
+
+    .section-title h2{
+      color:var(--main1);
+      font-size:40px;
+      font-weight:700;
+    }
+
+    .section-title p{
+      color:#666;
+    }
+
+    /* PRODUCTS */
+    .products{
+      width:90%;
+      margin:40px auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      transition:0.4s ease;
+      cursor:pointer;
+    }
+
+    .card img{
+      width:100%;
+      height:260px;
+      object-fit:contain;
+      padding:15px;
+      background:#fff4fa;
+      transition:0.4s;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card-body{
+      padding:20px;
+      text-align:left;
+    }
+
+    .card-body h3{
+      font-size:18px;
+      margin-bottom:10px;
+      color:#333;
+      min-height:50px;
+      font-weight:600;
+    }
+
+    .card-body p{
+      font-size:14px;
+      color:#666;
+      margin-bottom:15px;
+    }
+
+    .view-btn{
+      background:linear-gradient(90deg,var(--main1),var(--main2));
+      border:none;
+      padding:12px 25px;
+      border-radius:30px;
+      color:white;
+      font-weight:600;
+      transition:0.3s;
+      width:100%;
+    }
+
+    .view-btn:hover{
+      transform:scale(1.03);
+      background:linear-gradient(90deg,var(--main2),var(--main1));
+    }
+
+    /* FOOTER */
+    footer{
+      background:#1f1f1f;
+      color:white;
+      padding:50px 20px;
+    }
+
+    .footer-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+      width:90%;
+      margin:auto;
+    }
+
+    .footer-box h3{
+      margin-bottom:15px;
+      color:var(--main2);
+    }
+
+    .footer-box p,
+    .footer-box a{
+      color:#ccc;
+      text-decoration:none;
+      display:block;
+      margin-bottom:10px;
+      transition:0.3s;
+    }
+
+    .footer-box a:hover{
+      color:white;
+    }
+
+    .social-icons a{
+      width:45px;
+      height:45px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:#333;
+      color:white;
+      font-size:20px;
+      margin-right:10px;
+      transition:0.3s;
+    }
+
+    .social-icons a:hover{
+      background:var(--main2);
+      transform:scale(1.1);
+    }
+
+    .copyright{
+      text-align:center;
+      margin-top:30px;
+      color:#aaa;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      header{
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+      }
+
+      nav{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .carousel-caption h1{
+        font-size:35px;
+      }
+
+      .carousel-caption p{
+        font-size:16px;
+      }
+
+      .products{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .card img{
+        height:220px;
+      }
+    }
+
+    @media(max-width:480px){
+      .products{
+        grid-template-columns:1fr;
+      }
+
+      .card img{
+        height:250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">✨ Boho Bliss</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#saree">Saree</a>
+      <a href="lehenga.html">Lehenga</a>
+      <a href="kurthi.html">Kurthi</a>
+      <a href="#footer">Contact</a>
+    </nav>
+
+    <div class="icons">
+      <i class="fa-solid fa-magnifying-glass"></i> &nbsp;
+      <i class="fa-solid fa-bag-shopping"></i> &nbsp;
+      <i class="fa-solid fa-user"></i>
+    </div>
+  </header>
+
+  <!-- CAROUSEL -->
+  <div id="sareeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#sareeCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#sareeCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#sareeCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="img/11.jpg" class="d-block w-100" alt="">
+        <div class="carousel-caption">
+          <h1>Elegant Saree Collection</h1>
+          <p>Perfect sarees for weddings & festivals ✨</p>
+          <button class="shop-btn" onclick="document.getElementById('saree').scrollIntoView()">Shop Now</button>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/22.jpg" class="d-block w-100" alt="">
+        <div class="carousel-caption">
+          <h1>Traditional & Trendy</h1>
+          <p>Modern designs with classic touch 💖</p>
+          <button class="shop-btn" onclick="document.getElementById('saree').scrollIntoView()">Explore</button>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/33.jpg" class="d-block w-100" alt="">
+        <div class="carousel-caption">
+          <h1>Wear Your Bliss</h1>
+          <p>Boho Bliss sarees for every occasion 🌸</p>
+          <button class="shop-btn" onclick="document.getElementById('saree').scrollIntoView()">Buy Now</button>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button"
+      data-bs-target="#sareeCarousel"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button"
+      data-bs-target="#sareeCarousel"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+
+  <!-- PRODUCT SECTION -->
+  <div class="section-title" id="saree">
+    <h2>Popular Sarees</h2>
+    <p>Click any saree to view full details</p>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+
+    <div class="card" onclick="goToPage('saree.html')">
+      <img src="img/3.jpg" alt="Purple Silk Saree">
+      <div class="card-body">
+        <h3>Purple Silk Party Wear Saree</h3>
+        <p>Premium silk saree with elegant border design.</p>
+        <button class="view-btn">View All Details</button>
+      </div>
+    </div>
+
+    <div class="card" onclick="goToPage('lehenga.html')">
+      <img src="img/10.webp" alt="Green Printed Saree">
+      <div class="card-body">
+        <h3>Blue Lehenga super style</h3>
+        <p>Lightweight saree perfect for casual & daily wear.</p>
+        <button class="view-btn">View All Details</button>
+      </div>
+    </div>
+
+    <div class="card" onclick="goToPage('kurthi.html')">
+      <img src="img/12.webp" alt="Banarasi Saree">
+      <div class="card-body">
+        <h3>Special kurthi</h3>
+        <p>Traditional Banarasi style saree for functions.</p>
+        <button class="view-btn">View All Details</button>
+      </div>
+    </div>
+
+    <div class="card" onclick="goToPage('western.html')">
+      <img src="img/13.webp" alt="Red Bridal Saree">
+      <div class="card-body">
+        <h3>westen tops</h3>
+        <p>Bridal saree with heavy zari & embroidery work.</p>
+        <button class="view-btn">View All Details</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container" id="footer">
+
+      <div class="footer-box">
+        <h3>✨ Boho Bliss</h3>
+        <p>Style Your Soul • Wear Your Bliss</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="#saree">Saree Collection</a>
+        <a href="#footer">Contact</a>
+      </div>
+
+      <div class="footer-box">
+        <h3>Contact</h3>
+        <p>Email: boho_bliss@gmail.com</p>
+        <p>Phone: +91 9360313674</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Boho Bliss | All Rights Reserved
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    function goToPage(page){
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>
